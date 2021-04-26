@@ -1,0 +1,19 @@
+.prices {
+    color: $dark-green;
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    background-color: $seashell;
+    gap: 15px;
+    
+    .columns {
+        border: 2px dashed $turqouise-green;
+
+        h2 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+
+}

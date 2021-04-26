@@ -1,0 +1,18 @@
+.nav-bar-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    a{
+        text-decoration: none;
+        color:$seashell;
+        font-size: 2em;
+        text-shadow: 1px 1px $middle-green;
+        transition: 0.5s ease-in-out;
+
+        &:hover {
+            color: $turqouise-green;
+            text-shadow: 1px 1px $dark-green;
+        }
+    }
+}

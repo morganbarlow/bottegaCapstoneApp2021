@@ -1,0 +1,25 @@
+.header-container {
+    background-color: $turqouise-green;
+    color: $dark-green;
+    height: 25%;
+    width: 100%;
+    
+    .logo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-top: 5px;
+        padding-bottom: 20px;
+        
+        img{height: 85px;} 
+        
+
+        // .title {
+            
+        // }
+    }
+
+
+}
+
+
