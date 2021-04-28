@@ -18,18 +18,16 @@ export default function navBar() {
                 <Link to ="/scheduling">Scheduling</Link>
             </div>
 
-            <div className = "content">
-                <Switch>
-                    <Route exact path= "/" component = {Home}/>
+            <Switch>
+                <Route exact path= "/" component = {Home}/>
 
-                    <Route path= "/about" component = {About}/>
+                <Route path= "/about" component = {About}/>
 
-                    <Route path= "/pricing" component = {Pricing}/>
+                <Route path= "/pricing" component = {Pricing}/>
 
-                    <Route path= "/scheduling" component = {Scheduling}/>
-            
-                </Switch>
-            </div>
+                <Route path= "/scheduling" component = {Scheduling}/>
+        
+            </Switch>
         </BrowserRouter>
     )
 }

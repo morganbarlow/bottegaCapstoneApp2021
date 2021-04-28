@@ -14,9 +14,12 @@ export default class Calendar extends Component {
         this.handleSubmit = this.handleSubmit.bind(this)
     }
 
-    componentDidMount(){
-        fetch(`https://bottega-capstone-api-2021.herokuapp.com/appointment/get/${this.props.monthId}/${this.props.date}`)
+    componentDidMount(props){
+        fetch(
+            `https://bottega-capstone-api-2021.herokuapp.com/appointment/get`, 
+        )
         .then(response => response.json())
+        .then(data => console.log(data))
         .then(data => {
             if (data.text) {
                 this.setState({ 
@@ -26,7 +29,7 @@ export default class Calendar extends Component {
                 })
             }
         })
-        .catch(error => console.log(error))
+        .catch(error => console.log("Error getting appointments", error))
     }
 
     handleChange(event){
@@ -34,16 +37,16 @@ export default class Calendar extends Component {
     }
 
     handleSubmit(){
-        console.log("test")
         if (this.state.reminderExists === false && this.state.text != "") {
-            console.log("test")
             fetch("https://bottega-capstone-api-2021.herokuapp.com/appointment/add",{
                 method: "POST",
                 headers: { "content-type": "application/json" },
                 body: JSON.stringify({
                     text: this.state.text,
                     date: this.props.date,
-                    month_id: this.props.monthId
+                    month_id: this.props.monthId,
+                    hour: this.props.hour,
+                    minute: this.props.minute
                 })
             })
             .then(response => response.json())
@@ -68,9 +71,10 @@ export default class Calendar extends Component {
         }
     }
 
+
     render() {
         return (
-            <div className = {`calendar-box ${this.props.overflow ? "overflow" : null }`}>
+            <div className = {`calendar ${this.props.overflow ? "overflow" : null }`}>
                 <div className= "date">{this.props.date}</div>
                 <textarea 
                     value={this.state.text} 

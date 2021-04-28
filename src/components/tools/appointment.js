@@ -3,11 +3,11 @@ import React from "react";
 import DayOfWeek from "./day-of-week";
 import Calendar from "./calendar"
 
-export default function content(props) {
-    const calendar = []
+export default function appointment(props) {
+    const calendarBoxes = []
     
     for (let i=0; i<props.startDay; i++) {
-        calendar.push(
+        calendarBoxes.push(
             <Calendar 
                 key={`${props.monthId}-${i}-P`}
                 monthId = {props.monthId}
@@ -17,7 +17,7 @@ export default function content(props) {
         )
     }
     for (let i=1; i<=props.daysInMonth; i++) {
-        calendar.push(
+        calendarBoxes.push(
             <Calendar 
                 key={`${props.monthId}-${i}-N`} 
                 monthId = {props.monthId}
@@ -26,7 +26,7 @@ export default function content(props) {
         )
     }
     for (let i=0; i<(42 - props.daysInMonth) - props.startDay; i++) {
-        calendar.push(
+        calendarBoxes.push(
             <Calendar 
                 key={`${props.monthId}-${i}`}
                 monthId = {props.monthId} 
@@ -37,7 +37,7 @@ export default function content(props) {
     }
     
     return (
-        <div className = "content">
+        <div className = "appointment-day">
             <DayOfWeek day="Sunday"/>
             <DayOfWeek day="Monday"/>
             <DayOfWeek day="Tuesday"/>
@@ -46,7 +46,7 @@ export default function content(props) {
             <DayOfWeek day="Friday"/>
             <DayOfWeek day="Saturday"/>
 
-            {Calendar}
+            <Calendar/>
         </div>
     )
 }

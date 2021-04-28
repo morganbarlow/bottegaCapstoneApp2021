@@ -1,31 +1,37 @@
 import React, { Component } from 'react';
+import axios from "axios";
 
 import Appointment from "../tools/appointment"
+import MonthName from "../tools/month-name"
+import Year from "../tools/year"
 
 
 export default class App extends Component {
   constructor() {
     super()
-
+    
+    
     const currentDate = new Date 
     const monthNameList = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
-
+    
     this.state = {
       loading: true,
       month: monthNameList[currentDate.getMonth()],
       year: currentDate.getFullYear(),
-      hour : currentDate.getHours(),
-      minute : currentDate.getMinutes(),
+      // hour : currentDate.getHours(),
+      // minute : currentDate.getMinutes(),
       data: [],
       currentMonthData: {},
       error: false
     }
-
+    
     this.handleMonthChange = this.handleMonthChange.bind(this)
   }
-
+  
+  
   componentDidMount() {
-    fetch("https://bottega-capstone-api-2021.herokuapp.com/month/get")
+    fetch("https://bottega-capstone-api-2021.herokuapp.com/month/get",
+    )
     .then(response => response.json())
     .then(data => this.setState({
       data: data,
@@ -39,7 +45,7 @@ export default class App extends Component {
       })
     })
   }
-
+  
   handleMonthChange(direction) {
     const monthNameList = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
     const currentMonthIndex =  monthNameList.indexOf(this.state.currentMonthData.name)
@@ -47,7 +53,7 @@ export default class App extends Component {
       currentMonthData: this.state.data.filter(month => month.name === monthNameList[currentMonthIndex + direction] && month.year === this.state.year)[0]
     })
   }
-
+  
   render() {
     if(this.state.loading){
       return (
@@ -62,17 +68,15 @@ export default class App extends Component {
         </div>)
     }
     return (
-      <div className='app'>
-        <Header month={this.state.currentMonthData.name} handleMonthChange={this.handleMonthChange}/>
+      <div className='scheduling-container'>
+        <MonthName month={this.state.currentMonthData.name} handleMonthChange={this.handleMonthChange}/>
         <Appointment 
           monthId={this.state.currentMonthData.id}
           startDay ={this.state.currentMonthData.start_day} 
           daysInMonth={this.state.currentMonthData.days_in_month}
           daysInPreviousMonth={this.state.currentMonthData.days_in_previous_month}
-          hour = {this.state.currentMonthData.hour}
-          minute = {this.state.currentMonthData.minute} 
-          />
-        <Footer  year={this.state.currentMonthData.year}/>
+        />
+        <Year  year={this.state.currentMonthData.year}/>
       </div>
     );
   }

@@ -11,9 +11,10 @@ export default function home() {
             </div>
             <div className = "insta-feed">
                 <InstagramEmbed
+                    className = "instagram"
                     url = "https://www.instagram.com/p/CN8W08KDaUo/"
-                    clientAccessToken='EAAoZA0zVyIoQBAAws6YGYyWJg2ZCOnGh1NUkVE44aJEoLgxQeVI1TDnWRdG2tlUJ9g8kvlHfUS1pDbAKu5FR5eM6yeObscdgAkSioHuSA9H3m5xvZAi7IOvaaTJZAsOn8nhxwIhaCWgCErKoipA416C6xJgGAbN3osDZAEeFXzq623hXGm5XHb6ZB20eGq5ZAqIMyhoNOAbHw3ZAFZCyNomlc1FmKLPIkciYc5fqMvvyuY1W4RkroKdZAn'
-                    maxWidth = {320}
+                    clientAccessToken='EAAoZA0zVyIoQBADw1SAvQEuQf9MYMKCic2dkaQqdxvUG9uc4kxW4oHY0QQBkbWYinIbNm0CHmWr5TtC8217qCQq3AGgG8StqGJMk4JZAHsgCpRk1nHMSZA4c0KRZBOqMJgEb1jCuJOWBRXxZAZAict6jYc3JSw29h4TursOV9oZB1jaJcuvhwv7RAvpfxRPRY5yqfpdKtDpCM5a5K5HZBoviRvgFzzKjSr17hVN3aeCuYH9yxi60gncV'
+                    maxWidth = {300}
                     hideCaption={true}
                     containerTagName='div'
                     protocol=''
