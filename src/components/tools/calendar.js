@@ -20,6 +20,7 @@ export default class Calendar extends Component {
         )
         .then(response => response.json())
         .then(data => console.log(data))
+        //debugging and housekeeping
         .then(data => {
             if (data.text) {
                 this.setState({ 
